@@ -1,0 +1,33 @@
+.cards {
+  padding: 0px 40px;
+  padding-top: 40px;
+}
+
+.cards__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  padding-top: 34px;
+  list-style-type: none;
+  gap: 21px;
+}
+
+.cards__text {
+  font-family: "CabinetGrostek", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24.8px;
+}
+@media screen and (max-width: 679px) {
+  .cards {
+    padding: 0px 16px;
+    padding-top: 32px;
+  }
+
+  .cards__list {
+    display: flex;
+    gap: 15px;
+    padding: 0px;
+  }
+}

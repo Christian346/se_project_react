@@ -1,0 +1,63 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 32px 40px 28px 40px;
+}
+
+.header__logo {
+  margin-right: 24px;
+  width: 89px;
+  height: 40px;
+}
+.header__mobile-btn{
+  display:none;
+}
+
+.header__date-and-location {
+  margin: 0;
+  font-family: "CabinetGrostek", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.header__add-clothes-btn {
+  margin: 0 20px 0 auto;
+  font-family: "Cabinet Grostek", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  background-color: transparent;
+  border: none;
+}
+
+.header__user-container {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+.header__username-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+  }
+  .header__username-inner-container{
+    display:flex;
+    align-items: center;
+  }
+
+.header__username {
+  margin: 0;
+  font-family: "Cabinet Grostek", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24.8px;
+  padding-right: 6px;
+}
+
+.header__popup-close{
+  display: none;
+}

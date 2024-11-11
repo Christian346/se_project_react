@@ -1,0 +1,95 @@
+@media screen and (max-width: 679px) {
+  .header {
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    padding: 20px 16px;
+    position: relative;
+  }
+  .header__user-container {
+    position: absolute;
+    top: 18px;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    padding-top: 60px;
+    border-radius: 10px;
+  }
+  .header__username-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column-reverse;
+    justify-content: center; 
+    align-items: center;
+
+  }
+  .header__username-inner-container{
+    display:flex
+  }
+ 
+
+  .header__add-clothes-btn {
+    margin: 0 auto;
+    padding-top: 24px;
+    padding-bottom: 60px;
+
+  }
+  .header__username{
+
+     padding-right: 6px;
+  }
+  .header__date-and-location {
+    padding-top: 32px;
+  }
+
+  .header__mobile-btn-container {
+    display: flex;
+    flex-direction: column;
+    visibility: visible;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .header__mobile-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 1);
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+
+  .header__mobile-btn_hidden {
+    display: none;
+  }
+
+  .header__user-container_hidden {
+    display: none;
+  }
+
+  .header__btn-hr {
+    border-bottom: 2px solid #000;
+    border-radius: 1px;
+    height: 2px;
+    width: 28px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .header__popup-close{
+  position:absolute;
+  top:15px;
+  left:89%;
+  border: none;
+  background: transparent;
+  height: 21.42px;
+  width: 21.21px;
+  background-image: url(../../assets/mobile-close-icon.svg);
+}
+
+}
