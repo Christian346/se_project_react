@@ -31,9 +31,7 @@ function HeaderMobileModal({handleAddClick}) {
             onClick={handleToggleMobileMenu}
             className="header__popup-close"
             type="button"
-          >
-            
-          </button>
+          ></button>
 
           <div className="header__username-container">
             <button
