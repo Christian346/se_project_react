@@ -1,7 +1,6 @@
 import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatarface.png";
-
 import { useState } from "react";
 import HeaderMobileModal from "../HeaderMobileModal/HeaderMobileModal";
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import closeicon from "../../assets/close-icon.svg";
 import avatar from "../../assets/avatarface.png";
 import"./HeaderMobileModal.css";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 function HeaderMobileModal({handleAddClick}) {
   const [isMobileHeaderOpen, setIsMobileHeaderOpen] = useState(false);
@@ -34,6 +35,7 @@ function HeaderMobileModal({handleAddClick}) {
           ></button>
 
           <div className="header__username-container">
+           <ToggleSwitch />
             <button
               onClick={handleAddClick}
               type="button"
