@@ -8,7 +8,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 import Footer from "../Footer/Footer";
-import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
+import { CurrentTemperatureUnitContext } from "../../utils/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import { getItems, postItem, deleteItem } from "../../utils/api";
@@ -44,12 +44,11 @@ function App() {
   const onAddItem = (/*e ,*/ newItem) => {
     /*e.preventDefault()  console.log(e);*/
     postItem(newItem)
-      .then(()=>{
+      .then(() => {
         // clothingItems contains updated data
-        setClothingItems([...clothingItems, newItem])
+        setClothingItems([...clothingItems, newItem]);
         closeActiveModal();
-      } 
-      )
+      })
       .catch((error) => {
         console.log(error);
       });
