@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -10,6 +10,9 @@ import { coordinates, APIkey } from "../../utils/constants";
 import Footer from "../Footer/Footer";
 import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import Profile from "../Profile/Profile";
+import { getItems, postItem, deleteItem } from "../../utils/api";
+import OnDeleteModal from "../OnDeleteModal/OnDeleteModal";
 
 function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("C");
@@ -22,6 +25,8 @@ function App() {
 
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+
+  const [clothingItems, setClothingItems] = useState([]);
 
   const handleAddClick = () => {
     setActiveModal(/*"add-garment"*/ "create");
@@ -36,12 +41,39 @@ function App() {
     setSelectedCard(card);
   };
 
-  const onAddItem = (/*e ,*/ values) => {
-    /*e.preventDefault()
-   console.log(e);
-   */
-   console.log(values);
-   // console.log(e.target)
+  const onAddItem = (/*e ,*/ newItem) => {
+    /*e.preventDefault()  console.log(e);*/
+    postItem(newItem)
+      .then(()=>{
+        // clothingItems contains updated data
+        setClothingItems([...clothingItems, newItem])
+        closeActiveModal();
+      } 
+      )
+      .catch((error) => {
+        console.log(error);
+      });
+    //console.log(values);
+    // console.log(e.target)
+  };
+
+  const onDeleteItem = (id) => {
+    console.log("test");
+    deleteItem(id)
+      .then(() => {
+        const filteredClothingItems = clothingItems.filter((clothingItem) => {
+          return clothingItem._id !== id;
+        });
+        setClothingItems(filteredClothingItems);
+        closeActiveModal();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleClickDeleteModal = () => {
+    setActiveModal("OnDeleteModal");
   };
 
   const handleToggleSwitchChange = () => {
@@ -59,6 +91,17 @@ function App() {
       .catch(console.error);
   }, []); // empty array will make it so it runs only once
 
+  //fetch
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        console.log(data);
+        //setClothingItems
+        setClothingItems(data);
+      })
+      .catch(console.error);
+  }, []);
+
   //console.log(currentTemperatureUnit) // app value to match with toggle switch
   return (
     <div className="page">
@@ -68,11 +111,26 @@ function App() {
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
           <Routes>
-            <Route path="/" element={ <Main
-            propWeatherData={weatherData}
-            handleCardClick={handleCardClick}
-          />}/>
-            <Route path="/profile" element={<p>PROFILE PAGE</p>}/>
+            <Route
+              path="/"
+              element={
+                <Main
+                  //pass clothingItems as a prop
+                  clothingItems={clothingItems}
+                  propWeatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                />
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  onCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                />
+              }
+            />
           </Routes>
 
           {/*<Main
@@ -82,11 +140,28 @@ function App() {
 
           <Footer />
         </div>
-        {activeModal === "create" && (<AddItemModal closeActiveModal={closeActiveModal} isOpen={activeModal === "create"} onAddItem={onAddItem}/>)}
-        
+        {activeModal === "create" && (
+          <AddItemModal
+            closeActiveModal={closeActiveModal}
+            isOpen={activeModal === "create"}
+            onAddItem={onAddItem}
+          />
+        )}
+
+        {activeModal === "OnDeleteModal" && (
+          <OnDeleteModal
+            handleClickDeleteModal={handleClickDeleteModal}
+            activeModal={activeModal}
+            handleCloseActiveModal={closeActiveModal}
+            onDeleteItem={onDeleteItem}
+            card={selectedCard}
+          />
+        )}
+
         {activeModal === "preview" && (
           <ItemModal
             activeModal={activeModal}
+            handleClickDeleteModal={handleClickDeleteModal}
             card={selectedCard}
             handleCloseActiveModal={closeActiveModal}
           />

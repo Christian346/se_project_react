@@ -3,6 +3,7 @@ import closeicon from "../../assets/close-icon.svg";
 import avatar from "../../assets/avatarface.png";
 import"./HeaderMobileModal.css";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { Link } from "react-router-dom";
 
 function HeaderMobileModal({handleAddClick}) {
   const [isMobileHeaderOpen, setIsMobileHeaderOpen] = useState(false);
@@ -35,7 +36,7 @@ function HeaderMobileModal({handleAddClick}) {
           ></button>
 
           <div className="header__username-container">
-           <ToggleSwitch />
+            <ToggleSwitch />
             <button
               onClick={handleAddClick}
               type="button"
@@ -43,10 +44,12 @@ function HeaderMobileModal({handleAddClick}) {
             >
               + Add clothes
             </button>
-            <div className="header__username-inner-container">
-              <p className="header__username">Terrence Tegegne</p>
-              <img src={avatar} alt="username" className="header__avatar" />
-            </div>
+            <Link to="/profile" className="header__link">
+              <div className="header__username-inner-container">
+                <p className="header__username">Terrence Tegegne</p>
+                <img src={avatar} alt="username" className="header__avatar" />
+              </div>
+            </Link>
           </div>
         </div>
       </>

@@ -4,22 +4,28 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
   const [name, setName] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const[weather, setWeather]= useState("");
 
   const handleNameChange = (e) => {
     console.log(e.target.value);
     setName(e.target.value);
   };
-  
-  const [link, setUrl] = useState("")
+  //handler for set weather todo
 
-  const handleUrlChange = (e) => {
+
+  const handleImageUrlChange = (e) => {
     console.log(e.target.value);
-    setUrl(e.target.value);
+    setImageUrl(e.target.value);
   };
+
+  const handleTypeOfWeatherChange = (e) =>{
+    setWeather(e.target.value)
+  }
 
   const handleSubmit = (e) =>{
  e.preventDefault();
- onAddItem({name,link})
+ onAddItem({name,imageUrl,weather})
   };
 
   return (
@@ -51,8 +57,8 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
           className="modal__input"
           id="imageUrl"
           placeholder="Image Url"
-          value={link}
-          onChange={handleUrlChange}
+          value={imageUrl}
+          onChange={handleImageUrlChange}
         />
       </label>
 
@@ -64,6 +70,8 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
             id="hot"
             className="modal__input modal__radio-input"
             name="radio-choice"
+            value="hot"
+            onChange={handleTypeOfWeatherChange}
           />
           Hot
         </label>
@@ -74,6 +82,8 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
             id="warm"
             className="modal__input modal__radio-input"
             name="radio-choice"
+            value="warm"
+            onChange={handleTypeOfWeatherChange}
           />
           Warm
         </label>
@@ -83,6 +93,8 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
             id="cold"
             className="modal__input modal__radio-input"
             name="radio-choice"
+            value="cold"
+            onChange={handleTypeOfWeatherChange}
           />
           Cold
         </label>
