@@ -11,7 +11,7 @@ function OnDeleteModal({
 }) {
 
   const handleDelete = (e) => {
-    console.log('ondelemodal')
+    console.log(card._id)
     onDeleteItem(card._id);
   };
 
@@ -44,7 +44,8 @@ function OnDeleteModal({
               Yes, delete item
             </button>
 
-            <p className="modal__caption">Cancel</p>
+            <button className="modal__cancel"
+            onClick={handleCloseActiveModal}>Cancel</button>
           </div>
         </div>
       </div>

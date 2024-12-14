@@ -40,3 +40,5 @@ const getWeatherType = (temperature) => {
     return "cold";
   }
 };
+
+

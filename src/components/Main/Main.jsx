@@ -26,7 +26,7 @@ function Main({ propWeatherData, handleCardClick, clothingItems }) {
                 return (
                   <ItemCard
                     key={item._id}
-                    propItem={item}
+                    singleCard={item}
                     onCardClick={handleCardClick}
                   />
                 );

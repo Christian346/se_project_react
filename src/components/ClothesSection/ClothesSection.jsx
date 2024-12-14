@@ -4,12 +4,12 @@ import ItemCard from "../ItemCard/ItemCard";
 import { defaultClothingItems } from "../../utils/constants";
 
 
-function ClothesSection ({onCardClick ,clothingItems}){
+function ClothesSection ({onCardClick ,clothingItems ,handleAddClick}){
  return (
    <div className="clothes-section">
      <div className="clothes-section__upper">
        <p className="clothes-section__text">Your Items</p>
-       <button className="clothes-section__btn">Add New +</button>
+       <button className="clothes-section__btn" onClick={handleAddClick}>Add New +</button>
      </div>
 
      <ul className="clothes-section__items">
@@ -19,8 +19,8 @@ function ClothesSection ({onCardClick ,clothingItems}){
          .map((singleCard) => {
            return (
              <ItemCard
-               key={singleCard._id}
-               propItem={singleCard}
+             
+               singleCard={singleCard}
                // pass as prop to this component
                onCardClick={onCardClick}
              />

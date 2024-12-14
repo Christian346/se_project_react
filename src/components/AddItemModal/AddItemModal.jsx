@@ -54,6 +54,7 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
         Image URL{" "}
         <input
           type="url"
+          required
           className="modal__input"
           id="imageUrl"
           placeholder="Image Url"

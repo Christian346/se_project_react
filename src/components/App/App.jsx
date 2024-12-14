@@ -44,9 +44,9 @@ function App() {
   const onAddItem = (/*e ,*/ newItem) => {
     /*e.preventDefault()  console.log(e);*/
     postItem(newItem)
-      .then(() => {
+      .then((addedItem) => {
         // clothingItems contains updated data
-        setClothingItems([...clothingItems, newItem]);
+        setClothingItems([addedItem,...clothingItems, /*newItem*/ /*addeItem*/]);//addedItem is the api data with the newly included item
         closeActiveModal();
       })
       .catch((error) => {
@@ -127,6 +127,7 @@ function App() {
                 <Profile
                   onCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  handleAddClick={handleAddClick}
                 />
               }
             />
