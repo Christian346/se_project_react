@@ -5,7 +5,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const[weather, setWeather]= useState("");
+  const [weather, setWeather] = useState("");
 
   const handleNameChange = (e) => {
     console.log(e.target.value);
@@ -13,19 +13,18 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
   };
   //handler for set weather todo
 
-
   const handleImageUrlChange = (e) => {
     console.log(e.target.value);
     setImageUrl(e.target.value);
   };
 
-  const handleTypeOfWeatherChange = (e) =>{
-    setWeather(e.target.value)
-  }
+  const handleTypeOfWeatherChange = (e) => {
+    setWeather(e.target.value);
+  };
 
-  const handleSubmit = (e) =>{
- e.preventDefault();
- onAddItem({name,imageUrl,weather})
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddItem({ name, imageUrl, weather });
   };
 
   return (

@@ -12,6 +12,7 @@
 
 .modal__image {
   width:100%;
+  max-height: 498px;
   border-top-left-radius: 19px;
   border-top-right-radius: 19px;
 }

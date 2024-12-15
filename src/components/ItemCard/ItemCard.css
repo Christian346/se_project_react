@@ -21,6 +21,7 @@
 
 .card__image {
   width: 100%;
+  max-height:326px ;
   border-radius: 19px;
   border: 1px solid black;
 }
