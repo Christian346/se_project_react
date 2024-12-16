@@ -19,7 +19,7 @@ function ClothesSection ({onCardClick ,clothingItems ,handleAddClick}){
          .map((singleCard) => {
            return (
              <ItemCard
-             
+               key={singleCard._id}
                singleCard={singleCard}
                // pass as prop to this component
                onCardClick={onCardClick}
