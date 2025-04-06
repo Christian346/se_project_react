@@ -31,12 +31,16 @@
   justify-content: space-between;
   padding: 20px 32px 32px 32px;
 }
-.modal__delete_btn {
+.modal__delete-btn {
   background: none;
   border: none;
   color: red;
   align-self: flex-start;
   font-size: 20px;
+}
+
+.modal__delete-btn_hidden{
+  visibility: hidden;
 }
 
 .modal__footer {

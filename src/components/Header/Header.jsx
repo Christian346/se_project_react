@@ -5,7 +5,12 @@ import { useState } from "react";
 import HeaderMobileModal from "../HeaderMobileModal/HeaderMobileModal";
 import { Link } from "react-router-dom";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({
+  handleAddClick,
+  weatherData,
+  handleLoginClick,
+  handleRegisterClick,
+}) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -22,7 +27,11 @@ function Header({ handleAddClick, weatherData }) {
         </p>
       </div>
 
-      <HeaderMobileModal handleAddClick={handleAddClick} />
+      <HeaderMobileModal
+        handleAddClick={handleAddClick}
+        handleLoginClick={handleLoginClick}
+        handleRegisterClick={handleRegisterClick}
+      />
     </header>
   );
 }
