@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import "./RegisterModal.css";
 
 const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
   //   const [name, setName] = useState("");

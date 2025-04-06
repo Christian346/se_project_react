@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import "./LoginModal.css";
 
 const LoginModal = ({ closeActiveModal, isOpen, handleLogin }) => {
   //   const [name, setName] = useState("");
