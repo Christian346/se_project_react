@@ -1,16 +1,16 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import CurrentUserContext from '../../utils/CurrentUserContext';
+import CurrentUserContext from "../../utils/CurrentUserContext";
 
-function ProfileEditModal ({handleCloseActiveModal,isOpen,onEdit}){
+function ProfileEditModal({ handleCloseActiveModal, isOpen, onEdit }) {
   //props are always going to be one object with nothing else.
 
   const { currentUser } = useContext(CurrentUserContext);
   //user currentcontext.name and avatar instead of "" empty strings below!
 
   const [data, setData] = useState({
-    name: currentUser.name/*""*/,
-    avatar:currentUser.avatar /*""*/,
+    name: "",
+    avatar:"",
   });
   // can you please elaborate on how I would use the useEffect hook here instead please!!
 
@@ -26,6 +26,14 @@ function ProfileEditModal ({handleCloseActiveModal,isOpen,onEdit}){
     e.preventDefault();
     onEdit(data /*{ name, imageUrl }*/);
   };
+
+  useEffect(() => {
+    console.log("is open is changing");
+    setData({
+      name: currentUser.name /*""*/,
+      avatar: currentUser.avatar /*""*/,
+    });
+  }, [isOpen]);
 
   return (
     <ModalWithForm
