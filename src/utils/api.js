@@ -59,9 +59,7 @@ export const getUserInfo = (token) => {
       // formatted value.
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then((res) => handleResponse(res));
 };
 
 
@@ -76,14 +74,12 @@ export const setUserInfo = ({name, imageUrl},token) => {
       // Specify an authorization header with an appropriately
       // formatted value.
       Authorization: `Bearer ${token}`,
-    }, 
+    },
     body: JSON.stringify({
       name,
-      imageUrl
-    })
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+      imageUrl,
+    }),
+  }).then((res) => handleResponse(res));
 };
 
 export const addCardLike =(id, token)=>{
@@ -114,4 +110,4 @@ export const removeCardLike = (id, token)=>{
 
 
 //you need adding items and deleting items
-export { getItems, deleteItem, postItem ,patchItem};
+export { getItems, deleteItem, postItem ,patchItem ,handleResponse};

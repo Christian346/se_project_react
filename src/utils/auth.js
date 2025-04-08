@@ -1,4 +1,5 @@
 import { baseUrl as BASE_URL}  from "./api";
+import { handleResponse } from "./api";
 
 export const signup = (name, password, email, avatarUrl) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -8,10 +9,7 @@ export const signup = (name, password, email, avatarUrl) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, password, email, avatar: avatarUrl }),
-  })
-    .then((res) => {
-      return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-    })
+  }).then((res) => handleResponse(res));
 };
 
 
@@ -23,8 +21,6 @@ export const signin = (email,password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({password, email }), //{password: "jsmith@yahoo.com, email: 12345"}
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then((res) => handleResponse(res));
 };
 

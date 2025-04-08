@@ -4,7 +4,12 @@ import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
-const LoginModal = ({ closeActiveModal, isOpen, handleLogin }) => {
+const LoginModal = ({
+  closeActiveModal,
+  isOpen,
+  handleLogin,
+  handleRegisterClick,
+}) => {
   //   const [name, setName] = useState("");
   //   const [imageUrl, setImageUrl] = useState("");
   //   const [weather, setWeather] = useState("");
@@ -42,6 +47,9 @@ const LoginModal = ({ closeActiveModal, isOpen, handleLogin }) => {
 
   //       setMessage((prev)=>{return !prev});
   //   }
+  const handleRegisterBtnClick = () =>{
+    handleRegisterClick()
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,7 +92,13 @@ const LoginModal = ({ closeActiveModal, isOpen, handleLogin }) => {
           onChange={handleChange} //{handleImageUrlChange}
         />
       </label>
-      <p> or Sign up</p>
+      <p
+        className="modal__sign_up-btn"
+        onClick={handleRegisterClick}
+        
+      >
+        or Sign up
+      </p>
     </ModalWithForm>
   );
 };

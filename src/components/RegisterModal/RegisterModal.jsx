@@ -4,7 +4,12 @@ import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
 
-const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
+const RegisterModal = ({
+  closeActiveModal,
+  onRegister,
+  isOpen,
+  handleLoginClick,
+}) => {
   //   const [name, setName] = useState("");
   //   const [imageUrl, setImageUrl] = useState("");
   //   const [email, setEmail] = useState("");
@@ -18,7 +23,7 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
     email: "",
     password: "",
     // confirmPassword: "",
-    avatar: "",  //match the schema 
+    avatar: "", //match the schema
   });
 
   // This function fires whenever an input is changed, and it updates
@@ -47,9 +52,9 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
   //     setEmail(e.target.value);
   //   };
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      onRegister( data/*{ name, password, email, avatarUrl }*/);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onRegister(data /*{ name, password, email, avatarUrl }*/);
   };
 
   return (
@@ -78,7 +83,7 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
       <label htmlFor="password" className="modal__label">
         Password*{" "}
         <input
-         name="password"
+          name="password"
           type="password"
           required
           className="modal__input"
@@ -92,7 +97,7 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
       <label htmlFor="name" className="modal__label">
         Name *{" "}
         <input
-         name="name"
+          name="name"
           type="text"
           className="modal__input"
           id="name"
@@ -105,18 +110,19 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
       <label htmlFor="avatar" className="modal__label">
         Avatar URL *{" "}
         <input
-         name= "avatar"
+          name="avatar"
           type="url"
           required
           className="modal__input"
           id="avatar"
           placeholder="Avatar Url"
           value={data.avatar} //{avatarUrl}
-          onChange={handleChange}//{handleImageUrlChange}
+          onChange={handleChange} //{handleImageUrlChange}
         />
       </label>
-
-      <p>or Log in</p>
+      <p className="modal__log_in-btn" onClick={handleLoginClick}>
+        or Log in
+      </p>
     </ModalWithForm>
   );
 };

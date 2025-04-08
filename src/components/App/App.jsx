@@ -151,7 +151,7 @@ function App() {
           navigate("/profile"); // send them to where they need to be?
           //
           // console.log(data);
-          setActiveModal("");
+          closeActiveModal();
         }
       })
       .catch(console.error);
@@ -172,10 +172,10 @@ function App() {
         console.log("item patched");
       })
       .catch((error) => console.error(error));
-    setActiveModal("");
+    closeActiveModal();
     //closemodal once it is done
   };
- console.log(clothingItems)
+ // console.log(clothingItems)
   const handleHeartClick = ({id,isLiked}) => {
     //we need
     const token = localStorage.getItem("jwt");
@@ -274,7 +274,7 @@ function App() {
                     clothingItems={clothingItems}
                     propWeatherData={weatherData}
                     handleCardClick={handleCardClick}
-                    handleHeartClick = {handleHeartClick}
+                    handleHeartClick={handleHeartClick}
                   />
                 }
               />
@@ -287,10 +287,10 @@ function App() {
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
-                      userData={userData}
+                    //  userData={userData}
                       onLogout={handleLogout}
                       handleEditBtnClick={handleEditProfileModal}
-                      handleHeartClick= {handleHeartClick}
+                      handleHeartClick={handleHeartClick}
                     />
                   </ProtectedRoute>
                 }
@@ -336,6 +336,7 @@ function App() {
             <LoginModal
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "LoginModal"}
+              handleRegisterClick={handleRegisterClick}
               handleLogin={handleLogin}
             />
           )}
@@ -344,6 +345,7 @@ function App() {
             <RegisterModal
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "RegisterModal"}
+              handleLoginClick={handleLoginClick}
               onRegister={handleRegistration}
             />
           )}

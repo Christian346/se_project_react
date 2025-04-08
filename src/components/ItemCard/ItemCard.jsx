@@ -27,12 +27,14 @@ function ItemCard({ singleCard, onCardClick, handleHeartClick }) {
       <div className="card__upper-segment">
         <h2 className="card__name">{singleCard.name}</h2>
         {/*  ternanry operator to show the heart class by using isLiked */}
+        {isLoggedIn?
         <button
           className={isLiked ? "card__heart card__heart_active" : "card__heart"}
           type="button"
           aria-label="button to like"
           onClick={handleLikeButtonClick}
-        ></button>
+        ></button>:""
+      }
       </div>
       <img
         onClick={handleCardClick}
