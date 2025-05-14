@@ -1,4 +1,8 @@
- export const baseUrl = "http://localhost:3001";
+ export const baseUrl =
+   process.env.NODE_ENV === "production"
+     ? "https://api.chris-wtwr.minecraftnoob.com"
+     : "http://localhost:3001";
+ //"http://localhost:3001";
 
 function handleResponse(res) {
   return res.ok ? res.json() : Promise.reject(`Error : ${res.status}`);
