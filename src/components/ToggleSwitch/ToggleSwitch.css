@@ -8,10 +8,10 @@
   border: 2px solid black;
   width: 55px;
   height: 30px;
-  background-color:#fff;
+  background-color: #fff;
   /*outline:none;*/
   appearance: none;
-  margin-right:20px;
+  margin-right: 20px;
 }
 .switch__slider {
   border-radius: 100%;
@@ -47,5 +47,11 @@
   position: absolute;
   top: -11px;
   left: 38px;
-  color:#fff
+  color: #fff;
+}
+
+@media screen and (max-width: 679px) {
+  .switch__box {
+    margin-right: 0px;
+  }
 }

@@ -67,16 +67,21 @@ function HeaderMobileModal({
           </div>
         ) : (
           <div className="header__username-container">
-            <ToggleSwitch />
-            <button onClick={handleLoginClick} className="header__register-btn">
-              Login
-            </button>
-            <button
-              onClick={handleRegisterClick}
-              className="header__register-btn"
-            >
-              Sign Up
-            </button>
+            <div className="header__username-inner-container">
+              <ToggleSwitch />
+              <button
+                onClick={handleLoginClick}
+                className=" header__register-btn header__login-btn"
+              >
+                Login
+              </button>
+              <button
+                onClick={handleRegisterClick}
+                className="header__register-btn"
+              >
+                Sign Up
+              </button>
+            </div>
           </div>
         )}
       </div>
